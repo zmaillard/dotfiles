@@ -1,0 +1,16 @@
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-vinegar'
+Plug 'jpalardy/vim-slime'
+Plug 'vim-scripts/VimClojure'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'benmills/vimux'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'airblade/vim-gitgutter'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+call plug#end()
