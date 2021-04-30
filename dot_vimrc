@@ -34,6 +34,14 @@ endif
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() 
             \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
+map <C-o> :NERDTreeToggle<CR>
+
+" OmniSharp Helpers
+nnoremap <C-o><C-u> :OmniSharpFindUsages<CR>
+nnoremap <C-o><C-d> :OmniSharpGotoDefinition<CR>
+nnoremap <C-o><C-d><C-p> :OmniSharpPreviewDefinition<CR>
+nnoremap <C-o><C-r> :!dotnet run
+
 if filereadable(expand("~/.vimrc.plug"))
   source ~/.vimrc.plug
 endif
