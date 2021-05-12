@@ -114,6 +114,12 @@ if [ -e /home/zmaillard/.nix-profile/etc/profile.d/nix.sh ]; then . /home/zmaill
 #
 eval "$(rbenv init -)"
 
+eval "$(direnv hook zsh)"
+
+eval "$(starship init zsh)"
+
+export PATH=$PATH:~/.vscode-server/data/User/globalStorage/github.vscode-codeql/distribution1/codeql 
+
 source '{{ .chezmoi.homedir }}/lib/azure-cli/az.completion'
 {{- end }}
 export PATH=$PATH:{{ .chezmoi.homedir }}/bin

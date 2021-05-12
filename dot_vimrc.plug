@@ -13,6 +13,6 @@ Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'OmniSharp/omnisharp-vim'
+Plug 'inside/vim-search-pulse'
 call plug#end()
