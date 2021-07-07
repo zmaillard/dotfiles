@@ -105,7 +105,7 @@ fi
 #export DOCKER_HOST=tcp://localhost:2375
 
 {{- if ne .chezmoi.hostname "caribou" }}
-export PATH="/home/zmaillard/.dotnet:/home/zmaillard/.rbenv/bin:$PATH"
+export PATH="/home/zmaillard/.dotnet:/home/zmaillard/.dotnet/tools:/home/zmaillard/.rbenv/bin:$PATH"
 if [ -e /home/zmaillard/.nix-profile/etc/profile.d/nix.sh ]; then . /home/zmaillard/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 #if [[ ! -v TMUX && $TERM_PROGRAM != "vscode" ]]; then
