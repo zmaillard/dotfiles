@@ -14,7 +14,6 @@ Plug 'flazz/vim-colorschemes'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'prettier/vim-prettier', { 'do': 'npm install' , 'branch' : 'release/1.x' }
 Plug 'dense-analysis/ale'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -24,7 +23,8 @@ Plug 'valloric/MatchTagAlways'
 Plug 'jiangmiao/auto-pairs'
 
 Plug 'hashivim/vim-terraform'
-
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+Plug 'ervandew/supertab'
 call plug#end()
 
 :map <C-n> :NERDTreeToggle<CR>
