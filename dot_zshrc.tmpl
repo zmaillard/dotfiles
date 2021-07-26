@@ -66,6 +66,8 @@ plugins=(
   nvm
   tmux
   sudo
+  terraform
+  asdf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -98,6 +100,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias vi="nvim"
+alias vim="nvim"
 
 if [ -d "$HOME/.local/bin" ] ; then
   export PATH="$HOME/.local/bin:$PATH"

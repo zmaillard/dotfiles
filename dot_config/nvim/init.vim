@@ -41,3 +41,6 @@ let g:coc_global_extensions=['coc-omnisharp']
 let g:ale_linters = {
 \ 'cs':['OmniSharp']
 \}
+
+let g:NERDTreeShowHidden=1
+
