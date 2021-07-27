@@ -39,7 +39,8 @@ autocmd FileType cs nnoremap <Leader><Space> :OmniSharpGetCodeActions<CR>
 let g:coc_global_extensions=['coc-omnisharp']
 
 let g:ale_linters = {
-\ 'cs':['OmniSharp']
+\ 'cs':['OmniSharp'],
+\ 'elm': ['elm_ls']
 \}
 
 let g:NERDTreeShowHidden=1
