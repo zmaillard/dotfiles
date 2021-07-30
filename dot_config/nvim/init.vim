@@ -25,6 +25,13 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'hashivim/vim-terraform'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'ervandew/supertab'
+
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'jparise/vim-graphql'
+
 call plug#end()
 
 :map <C-n> :NERDTreeToggle<CR>
