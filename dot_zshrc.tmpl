@@ -102,6 +102,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi="nvim"
 alias vim="nvim"
+alias python="python3"
 
 if [ -d "$HOME/.local/bin" ] ; then
   export PATH="$HOME/.local/bin:$PATH"
@@ -120,12 +121,17 @@ eval "$(rbenv init -)"
 
 eval "$(direnv hook zsh)"
 
-eval "$(starship init zsh)"
 
-export PATH=$PATH:~/.vscode-server/data/User/globalStorage/github.vscode-codeql/distribution1/codeql 
+eval "$(thefuck --alias)"
+
+eval "$(zoxide init zsh)"
+
+export PATH=$PATH:~/.vscode-server/data/User/globalStorage/github.vscode-codeql/distribution1/codeql:/opt/mssql-tools/bin
 
 source '{{ .chezmoi.homedir }}/lib/azure-cli/az.completion'
 {{- end }}
+
+eval "$(starship init zsh)"
 export PATH=$PATH:{{ .chezmoi.homedir }}/bin
 
 unset BROWSER
