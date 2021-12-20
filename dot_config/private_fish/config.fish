@@ -16,3 +16,5 @@ end
 if test -d ~/.asdf
   source ~/.asdf/asdf.fish
 end
+
+direnv hook fish | source
