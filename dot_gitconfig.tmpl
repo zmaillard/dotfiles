@@ -10,10 +10,9 @@
         diff = false
         core = false
         branch = false
-{{ if eq .chezmoi.hostname "caribou" }}
+{{ if eq .chezmoi.hostname "lt-zmaillard" }}
 [url "https://zmaillard:{{ .ghcli }}@github.com"]
 	insteadOf = https://github.com
-{{ else }}
 [init]
         templatedir = /home/zmaillard/.git-template/
 {{ end }}

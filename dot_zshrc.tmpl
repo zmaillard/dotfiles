@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="{{ .chezmoi.homedir }}/.oh-my-zsh"
+export ZSH="{{ .chezmoi.homeDir }}/.oh-my-zsh"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -84,11 +84,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -113,8 +113,9 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 #export DOCKER_HOST=tcp://localhost:2375
 
-{{- if ne .chezmoi.hostname "caribou" }}
+{{- if eq .chezmoi.hostname "lt-zmaillard" }}
 export PATH="/home/zmaillard/.dotnet:/home/zmaillard/.dotnet/tools:/home/zmaillard/.rbenv/bin:$PATH"
+export PATH=$PATH:~/.vscode-server/data/User/globalStorage/github.vscode-codeql/distribution1/codeql:/opt/mssql-tools/bin
 if [ -e /home/zmaillard/.nix-profile/etc/profile.d/nix.sh ]; then . /home/zmaillard/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 #if [[ ! -v TMUX && $TERM_PROGRAM != "vscode" ]]; then
@@ -122,6 +123,10 @@ if [ -e /home/zmaillard/.nix-profile/etc/profile.d/nix.sh ]; then . /home/zmaill
 #fi
 #
 eval "$(rbenv init -)"
+source '{{ .chezmoi.homeDir }}/lib/azure-cli/az.completion'
+{{- else }}
+source '/opt/homebrew/etc/bash_completion.d/az'
+{{- end }}
 
 eval "$(direnv hook zsh)"
 
@@ -130,12 +135,8 @@ eval "$(thefuck --alias)"
 
 eval "$(zoxide init zsh)"
 
-export PATH=$PATH:~/.vscode-server/data/User/globalStorage/github.vscode-codeql/distribution1/codeql:/opt/mssql-tools/bin
-
-source '{{ .chezmoi.homedir }}/lib/azure-cli/az.completion'
-{{- end }}
 
 eval "$(starship init zsh)"
-export PATH=$PATH:{{ .chezmoi.homedir }}/bin
+export PATH=$PATH:{{ .chezmoi.homeDir }}/bin
 
 unset BROWSER
