@@ -113,7 +113,7 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 #export DOCKER_HOST=tcp://localhost:2375
 
-{{- if eq .chezmoi.hostname "lt-zmaillard" }}
+{{- if eq .chezmoi.hostname "LT-ZMAILLARD2" }}
 export PATH="/home/zmaillard/.dotnet:/home/zmaillard/.dotnet/tools:/home/zmaillard/.rbenv/bin:$PATH"
 export PATH=$PATH:~/.vscode-server/data/User/globalStorage/github.vscode-codeql/distribution1/codeql:/opt/mssql-tools/bin
 if [ -e /home/zmaillard/.nix-profile/etc/profile.d/nix.sh ]; then . /home/zmaillard/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
