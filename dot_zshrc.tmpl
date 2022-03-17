@@ -122,8 +122,12 @@ if [ -e /home/zmaillard/.nix-profile/etc/profile.d/nix.sh ]; then . /home/zmaill
 #    tmux_chooser && exit
 #fi
 #
-eval "$(rbenv init -)"
-source '{{ .chezmoi.homeDir }}/lib/azure-cli/az.completion'
+
+if [ -e '{{ .chezmoi.homeDir }}/lib/azure-cli/az.completion' ]; then 
+  source '{{ .chezmoi.homeDir }}/lib/azure-cli/az.completion'
+elif [ -e '{{ .chezmoi.homeDir }}/.local/bin/az.completion.sh' ]; then
+  source '{{ .chezmoi.homeDir }}/.local/bin/az.completion.sh'
+fi
 {{- else }}
 source '/opt/homebrew/etc/bash_completion.d/az'
 {{- end }}
