@@ -7,7 +7,7 @@ linux_amd64_v1.12.4.zip
 
 op signin my.1password.com zmaillard@protonmail.com
 
-apt-get unzip zsh neovim tmux zoxide direnv build-essential libssl-dev automake autoconf libncurses5-dev libreadline-dev zlib1g-dev thefuck python3-pip
+apt-get unzip zsh neovim tmux zoxide direnv build-essential libssl-dev automake autoconf libncurses5-dev libreadline-dev zlib1g-dev thefuck python3-pip jq
 
 Install Shell Tools
 - Nvim
