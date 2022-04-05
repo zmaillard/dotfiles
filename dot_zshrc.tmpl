@@ -145,6 +145,9 @@ export PATH=$PATH:{{ .chezmoi.homeDir }}/bin
 
 unset BROWSER
 
+#Hide node_modules and .git from fzf - show dotfiles tho
+export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
+
 {{- if eq .chezmoi.hostname "LT-ZMAILLARD2" }}
 if [[ -z "$XDG_RUNTIME_DIR"  ]]; then
   export XDG_RUNTIME_DIR=/run/user/$UID
