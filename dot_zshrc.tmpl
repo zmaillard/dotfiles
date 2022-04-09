@@ -129,6 +129,7 @@ elif [ -e '{{ .chezmoi.homeDir }}/.local/bin/az.completion.sh' ]; then
   source '{{ .chezmoi.homeDir }}/.local/bin/az.completion.sh'
 fi
 {{- else }}
+export PATH=$PATH:{{ .chezmoi.homeDir }}/.dapr/bin:/opt/homebrew/opt/libpq/bin 
 source '/opt/homebrew/etc/bash_completion.d/az'
 {{- end }}
 

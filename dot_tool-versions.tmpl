@@ -1,7 +1,9 @@
 erlang 24.0.4
 elixir 1.12.2-otp-24
-nodejs 14.15.4
+elm 0.19.1
 {{- if eq .chezmoi.hostname "LT-ZMAILLARD2" }}
 ruby 2.6.4
 nodejs 16.13.2
+{{- else }}
+nodejs 14.17.0
 {{- end }}
