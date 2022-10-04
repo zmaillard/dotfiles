@@ -128,6 +128,7 @@ if [ -e '{{ .chezmoi.homeDir }}/lib/azure-cli/az.completion' ]; then
 elif [ -e '{{ .chezmoi.homeDir }}/.local/bin/az.completion.sh' ]; then
   source '{{ .chezmoi.homeDir }}/.local/bin/az.completion.sh'
 fi
+wsl.exe -d wsl-vpnkit service wsl-vpnkit start
 {{- else }}
 export PATH=$PATH:{{ .chezmoi.homeDir }}/.dapr/bin:/opt/homebrew/opt/libpq/bin 
 source '/opt/homebrew/etc/bash_completion.d/az'

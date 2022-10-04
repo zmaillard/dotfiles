@@ -8,7 +8,6 @@ noremap <Right> <Nop>
 set clipboard+=unnamedplus
 call plug#begin('~/.vim/plugged')
 
-Plug 'preservim/nerdtree'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'vim-airline/vim-airline'
@@ -36,7 +35,6 @@ Plug 'elixir-editors/vim-elixir'
 
 call plug#end()
 
-:map <C-n> :NERDTreeToggle<CR>
 :map <C-p> :GFiles<CR>
 :map <C-f> :Files<CR>
 
@@ -66,4 +64,3 @@ autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
 
-let g:NERDTreeShowHidden=1
