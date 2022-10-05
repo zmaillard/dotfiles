@@ -3,4 +3,10 @@ github.com:
     oauth_token: '{{ (last (index ((onepassword "nsmsxm4la7dcu52ui6xzho746e").details.sections) 0).fields).v }}'
     git_protocol: ssh
     user: {{ .ghusername }}
+{{- else }}
+github.com:
+    oauth_token: '{{ (index (onepassword "n5734ev4djb7tpw4gzqie4zpgu").fields 9).value }}'
+    git_protocol: ssh
+    user: {{ .ghusername }}
+
 {{- end }}
