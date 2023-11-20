@@ -1,0 +1,9 @@
+[aws]
+disabled = true
+
+[container]
+disabled = true
+
+[cmd_duration]
+disabled = true
+
