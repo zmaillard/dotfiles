@@ -113,25 +113,6 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 #export DOCKER_HOST=tcp://localhost:2375
 
-#{{- if (or (eq .chezmoi.hostname "RSP-VM-Healthwise-Dev") (eq .chezmoi.hostname "LT-ZMAILLARD2")) }}
-#export PATH="$HOME/.dotnet:$HOME/.dotnet/tools:$HOME/.rbenv/bin:$PATH"
-#export PATH=$PATH:~/.vscode-server/data/User/globalStorage/github.vscode-codeql/distribution1/codeql:/opt/mssql-tools/bin
-#if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then . "$HOME/.nix-profile/etc/profile.d/nix.sh"; fi # added by Nix installer
-
-#if [[ ! -v TMUX && $TERM_PROGRAM != "vscode" ]]; then
-#    tmux_chooser && exit
-#fi
-#
-
-#if [ -e '{{ .chezmoi.homeDir }}/lib/azure-cli/az.completion' ]; then 
-#  source '{{ .chezmoi.homeDir }}/lib/azure-cli/az.completion'
-#elif [ -e '{{ .chezmoi.homeDir }}/.local/bin/az.completion.sh' ]; then
-#  source '{{ .chezmoi.homeDir }}/.local/bin/az.completion.sh'
-#fi
-#{{- else }}
-#export PATH=$PATH:{{ .chezmoi.homeDir }}/.dapr/bin:/opt/homebrew/opt/libpq/bin 
-#source '/opt/homebrew/etc/bash_completion.d/az'
-#{{- end }}
 
 #wsl.exe -d wsl-vpnkit service wsl-vpnkit start
 eval "$(direnv hook zsh)"
