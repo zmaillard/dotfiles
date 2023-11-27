@@ -3,9 +3,7 @@
 {{ if eq .chezmoi.username "root" -}}
 {{  $sudo = "" -}}
 {{ end -}}
-
-#! bin/bash
-
+#! /bin/bash
 set -eufo pipefail
 
 {{ $sudo }}add-apt-repository ppa:maveonair/helix-editor

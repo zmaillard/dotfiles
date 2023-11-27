@@ -6,7 +6,7 @@
 
 ```bash
 # Install adduser utility, and sudo
-apt-get update && apt-get install sudo adduser
+apt-get update && apt-get install sudo adduser software-properties-common
 
 # Create user and add to sudo group
 adduser zmaillard

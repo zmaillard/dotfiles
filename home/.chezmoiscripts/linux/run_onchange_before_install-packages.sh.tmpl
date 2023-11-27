@@ -1,11 +1,11 @@
 {{ if eq .osid "linux-ubuntu" -}}
-
 {{ $packages := list
 	"direnv" 
 	"build-essential"
 	"iproute2"
 	"fzf" 
 	"git" 
+	"python3-venv"
 	"zsh" 
 	"tmux" 
 	"unzip"
@@ -20,8 +20,7 @@
 {{ if eq .chezmoi.username "root" -}}
 {{  $sudo = "" -}}
 {{ end -}}
-
-#! bin/bash
+#! /bin/bash
 
 set -eufo pipefail
 
