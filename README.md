@@ -6,7 +6,7 @@
 
 ```bash
 # Install adduser utility, and sudo
-apt-get update && apt-get install sudo adduser software-properties-common curl
+apt-get update && apt-get install sudo adduser software-properties-common curl neovim
 
 # Create user and add to sudo group
 adduser zmaillard
