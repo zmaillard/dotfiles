@@ -21,6 +21,11 @@ rm /.dockerenv
 
 ## Log Out of WSL And Re-Open
 
+```cmd
+wsl -t <distroname>
+wsl -d <distroname>
+```
+
 ## Install Chezmoi
 ```bash
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply zmaillardhw
