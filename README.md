@@ -13,7 +13,7 @@ adduser zmaillard
 usermod -a -G sudo zmaillard
 
 # Edit 
-echo "[user]\ndefault = zmaillard" > /etc/wsl.conf
+echo -e "[user]\ndefault = zmaillard" > /etc/wsl.conf
 
 # Remove Docker Indicators
 rm /.dockerenv
