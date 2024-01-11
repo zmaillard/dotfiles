@@ -1,10 +1,40 @@
+{{/* boolean feature tags */}}
+{{- $ephemeral := false -}}{{/* true if this machine is ephemeral, e.g. a cloud or VM instance */}}
+{{- $headless := false -}}{{/* true if this machine does not have a screen and keyboard */}}
+{{- $personal := false -}}{{/* true if this machine should have personal secrets */}}
+{{- $wsl := true -}}{{/* true if this machine is running on WSL */}}
+{{- "" -}}
+
+
+{{/* detect GitHub codespaces, VSCode remote containers, Docker containers, Multipass VMs, and Vagrant boxes */}}
+{{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") (eq .chezmoi.username "root" "ubuntu" "vagrant" "vscode") -}}
+{{-   $ephemeral = true -}}
+{{-   $headless = true -}}
+{{-   $personal = true -}}
+{{- else -}}
+{{-   $personal = promptBoolOnce . "personal" "personal" -}}
+{{- end -}}
+
 {{- $osID := .chezmoi.os -}}
 {{- if (and (eq .chezmoi.os "linux") (hasKey .chezmoi.osRelease "id")) -}}
 {{-   $osID = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
 
+
+{{- $email := "zmaillard@healthwise.org" -}}
+{{- $ghuser := "zmaillardhw" -}}
+{{- if $personal -}}
+{{- $email := "zmaillard@proton.me" -}}
+{{- $ghuser := "zmaillard" -}}
+{{- $wsl = false -}}
+{{- end -}}
+
 [data]
-  email = "zmaillard@healthwise.org"
+  email = {{ $email | quote }}
   fullname = "Zachary Maillard"
-  ghusername = "zmaillardhw"
+  ghusername = {{ $ghuser | quote }} 
+  personal = {{ $personal }}
+  ephemeral = {{ $ephemeral }}
+  headless = {{ $headless }}
+  wsl = {{ $wsl }}
   osid = {{ $osID | quote }}
