@@ -35,10 +35,10 @@ ZSH_THEME="crunch"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -59,6 +59,9 @@ ZSH_THEME="crunch"
 # Enable vi mode
 bindkey -v
 
+# https://stackoverflow.com/questions/19305291/remnant-characters-when-tab-completing-with-zsh
+export LC_ALL="en_US.UTF_8"
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -70,6 +73,7 @@ plugins=(
   tmux
   sudo
   terraform
+  docker
   asdf
   vi-mode
 )
@@ -114,7 +118,6 @@ fi
 #export DOCKER_HOST=tcp://localhost:2375
 
 
-#wsl.exe -d wsl-vpnkit service wsl-vpnkit start
 eval "$(direnv hook zsh)"
 
 
@@ -125,7 +128,6 @@ eval "$(starship init zsh)"
 export PATH=$PATH:{{ .chezmoi.homeDir }}/bin
 
 unset BROWSER
-
 #Hide node_modules and .git from fzf - show dotfiles tho
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
 
