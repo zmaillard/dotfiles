@@ -1,13 +1,12 @@
 {{ if eq .osid "linux-ubuntu" -}}
+
 {{ $packages := list
 	"direnv" 
 	"build-essential"
 	"iproute2"
 	"fzf" 
 	"git" 
-	"python3-venv"
 	"zsh" 
-	"tmux" 
 	"unzip"
 	"ripgrep" 
 	"zoxide" 
@@ -15,7 +14,36 @@
 	"automake"
 	"autoconf"
 	"wget"
+	"make"
 	"jq" -}}
+
+{{ if eq .osid "linux-ubuntu" -}}
+{{   $packages = concat $packages (list "gdal-bin" "python3-venv" 	"tmux"  ) -}}
+{{ end -}}
+
+{{ if eq .osid "linux-raspbian" -}}
+{{ $rspPackages := list
+	"i2c-tools" 
+	"libssl-dev" 
+	"zlib1g-dev"
+	"curl"
+	"libbz2-dev"
+	"libreadline-dev"
+	"libsqlite3-dev"
+	"llvm" 
+	"libncursesw5-dev"
+	"xz-utils"
+	"tk-dev"
+	"libxml2-dev"
+	"libxmlsec1-dev"
+	"libffi-dev"
+	"liblzma-dev"
+	 -}}
+
+{{   $packages = concat $packages $rspPackages -}}
+
+{{ end -}}
+
 
 {{ $sudo := "sudo " -}}
 {{ if eq .chezmoi.username "root" -}}
@@ -27,5 +55,4 @@ set -eufo pipefail
 
 {{ $sudo }}apt-get update
 {{ $sudo }}apt-get install -y {{ $packages | join " " }}
-
 {{ end -}}
