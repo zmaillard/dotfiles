@@ -56,6 +56,11 @@ COMPLETION_WAITING_DOTS="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+{{ if eq .osid "linux-debian" -}}
+export TERM=vt100
+{{ end -}}
+
+
 # Enable vi mode
 bindkey -v
 
@@ -66,13 +71,17 @@ bindkey -v
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  nvm
-  tmux
+  vi-mode
   sudo
+{{ if eq .osid "linux-debian" -}}
+  asdf
+{{ end -}}
+{{ if eq .osid "linux-ubuntu" -}}
+  tmux
+  nvm
   terraform
   docker
-  asdf
-  vi-mode
+{{ end -}}
 )
 
 source $ZSH/oh-my-zsh.sh

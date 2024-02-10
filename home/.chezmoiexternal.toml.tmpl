@@ -22,3 +22,12 @@
     refreshPeriod = "168h"
 {{ end -}}
 
+{{ if eq .osid "linux-debian" -}}
+[".config/nvim/pack/github/start/copilot.vim"]
+    type = "archive"
+    url = "https://github.com/github/copilot.vim/archive/release.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+{{ end -}}
+

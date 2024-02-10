@@ -1,4 +1,4 @@
-{{ if eq .osid "linux-ubuntu" -}}
+{{ if eq .osid "linux-ubuntu" "linux-debian" -}}
 
 {{ $packages := list
 	"direnv" 
@@ -21,7 +21,7 @@
 {{   $packages = concat $packages (list "gdal-bin" "python3-venv" 	"tmux"  ) -}}
 {{ end -}}
 
-{{ if eq .osid "linux-raspbian" -}}
+{{ if eq .osid "linux-debian" -}}
 {{ $rspPackages := list
 	"i2c-tools" 
 	"libssl-dev" 
