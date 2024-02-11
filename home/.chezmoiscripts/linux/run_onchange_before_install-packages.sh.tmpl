@@ -23,6 +23,7 @@
 
 {{ if eq .osid "linux-debian" -}}
 {{ $rspPackages := list
+	"snapd" 
 	"i2c-tools" 
 	"libssl-dev" 
 	"zlib1g-dev"
