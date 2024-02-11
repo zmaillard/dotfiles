@@ -13,21 +13,24 @@
 	"libssl-dev"
 	"automake"
 	"autoconf"
+    "tmux"
 	"wget"
 	"make"
 	"jq" -}}
 
 {{ if eq .osid "linux-ubuntu" -}}
-{{   $packages = concat $packages (list "gdal-bin" "python3-venv" 	"tmux"  ) -}}
+{{   $packages = concat $packages (list "gdal-bin" "python3-venv" 	  ) -}}
 {{ end -}}
 
 {{ if eq .osid "linux-debian" -}}
 {{ $rspPackages := list
-	"snapd" 
 	"i2c-tools" 
 	"libssl-dev" 
 	"zlib1g-dev"
 	"curl"
+    "ninja-build"
+    "gettext"
+    "cmake"
 	"libbz2-dev"
 	"libreadline-dev"
 	"libsqlite3-dev"
