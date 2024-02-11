@@ -84,6 +84,11 @@ plugins=(
 {{ end -}}
 )
 
+{{ if eq .osid "linux-debian" -}}
+. ~/.asdf/plugins/golang/set-env.zsh
+{{ end -}}
+
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -97,7 +102,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR='nvim'
 else
   export EDITOR='nvim'
 fi
