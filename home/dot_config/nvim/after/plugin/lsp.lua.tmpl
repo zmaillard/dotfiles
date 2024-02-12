@@ -50,18 +50,27 @@ require('mason').setup({
     } 
 })
 
+
 require('mason-lspconfig').setup({
     ensure_installed = {
         "lua_ls",
+        "tsserver",
+{{ if eq .osid "linux-debian" -}}
         "rust_analyzer",
-        "gopls",
-        "tsserver"
+        "gopls"
+{{ end -}}
     },
 })
 
 lspconfig.lua_ls.setup({
     on_attach = on_attach,
 })
+
+lspconfig.tsserver.setup({
+    on_attach = on_attach,
+})
+
+{{ if eq .osid "linux-debian" -}}
 
 lspconfig.rust_analyzer.setup({
     on_attach = on_attach,
@@ -70,7 +79,4 @@ lspconfig.rust_analyzer.setup({
 lspconfig.gopls.setup({
     on_attach = on_attach,
 })
-
-lspconfig.tsserver.setup({
-    on_attach = on_attach,
-})
+{{ end -}}
