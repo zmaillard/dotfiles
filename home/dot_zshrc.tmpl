@@ -56,6 +56,11 @@ COMPLETION_WAITING_DOTS="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+{{ if eq .osid "linux-debian" -}}
+export TERM=vt100
+{{ end -}}
+
+
 # Enable vi mode
 bindkey -v
 
@@ -66,14 +71,23 @@ bindkey -v
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  nvm
-  tmux
+  vi-mode
   sudo
+{{ if eq .osid "linux-debian" -}}
+  asdf
+{{ end -}}
+{{ if eq .osid "linux-ubuntu" -}}
+  tmux
+  nvm
   terraform
   docker
-  asdf
-  vi-mode
+{{ end -}}
 )
+
+{{ if eq .osid "linux-debian" -}}
+. ~/.asdf/plugins/golang/set-env.zsh
+{{ end -}}
+
 
 source $ZSH/oh-my-zsh.sh
 
@@ -85,8 +99,10 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
+
+
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR='nvim'
 else
   export EDITOR='nvim'
 fi
@@ -108,7 +124,6 @@ fi
 alias vi="nvim"
 alias vim="nvim"
 alias python="python3"
-
 if [ -d "$HOME/.local/bin" ] ; then
   export PATH="$HOME/.local/bin:$PATH"
 fi
