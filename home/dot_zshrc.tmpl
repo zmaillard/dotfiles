@@ -124,6 +124,12 @@ fi
 alias vi="nvim"
 alias vim="nvim"
 alias python="python3"
+
+
+{{ if eq .osid "linux-ubuntu" -}}
+alias wsltime="sudo ntpdate time.windows.com"
+{{ end -}}
+
 if [ -d "$HOME/.local/bin" ] ; then
   export PATH="$HOME/.local/bin:$PATH"
 fi
