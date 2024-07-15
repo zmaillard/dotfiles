@@ -19,6 +19,13 @@ echo -e "[user]\ndefault = zmaillard" > /etc/wsl.conf
 rm /.dockerenv
 ```
 
+**WSL From Microsoft Store**
+
+```bash
+# Install NeoVim
+sudo snap install nvim
+```
+
 ## Log Out of WSL And Re-Open
 
 ```cmd
