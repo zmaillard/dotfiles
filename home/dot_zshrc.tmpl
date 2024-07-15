@@ -124,8 +124,11 @@ alias vim="nvim"
 alias python="python3"
 
 
-{{ if eq .osid "linux-ubuntu" -}}
+{{ if and (eq .osid "linux-ubuntu") (stat (joinPath .chezmoi.homeDir ".cargo")) -}}
 . "$HOME/.cargo/env"
+{{ end -}}
+
+{{ if eq .osid "linux-ubuntu" -}}
 alias wsltime="sudo ntpdate time.windows.com"
 {{ end -}}
 
