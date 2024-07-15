@@ -1,7 +1,6 @@
-{{ if eq .osid "linux-debian" -}}
+{{- if ne .chezmoi.os "darwin" -}}
 python 3.12.1
 nodejs 21.6.1
 golang 1.22.0
-{{ else if eq .osid "linux-ubuntu" -}}
 just 1.24.0
 {{ end -}}
