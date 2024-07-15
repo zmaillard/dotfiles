@@ -73,9 +73,7 @@ plugins=(
   git
   vi-mode
   sudo
-{{ if eq .osid "linux-debian" -}}
   asdf
-{{ end -}}
 {{ if eq .osid "linux-ubuntu" -}}
   tmux
   nvm
@@ -127,6 +125,7 @@ alias python="python3"
 
 
 {{ if eq .osid "linux-ubuntu" -}}
+. "$HOME/.cargo/env"
 alias wsltime="sudo ntpdate time.windows.com"
 {{ end -}}
 

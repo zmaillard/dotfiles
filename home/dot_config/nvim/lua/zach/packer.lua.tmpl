@@ -22,9 +22,7 @@ return require('packer').startup(function(use)
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
 
-  {{ if eq .osid "linux-debian" -}}
   use ('github/copilot.vim')
-  {{ end -}}
 
   use {'williamboman/mason.nvim'}
   use {'williamboman/mason-lspconfig.nvim'}
