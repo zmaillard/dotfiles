@@ -10,3 +10,4 @@ pager: !!null cat
 aliases:
     co: pr checkout
     showpr: pr list --search "-label:dependencies"
+version: "1"

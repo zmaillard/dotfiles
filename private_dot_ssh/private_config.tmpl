@@ -1,0 +1,16 @@
+Host tillamook.local
+  HostName tillamook.local
+
+Host 54.202.242.229
+  HostName 54.202.242.229
+  User ubuntu
+  IdentityFile ~/.ssh/Default.pem
+
+Host lane.local
+  HostName lane.local
+  User zachm
+
+{{if eq .chezmoi.os "darwin"}}
+Host *
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+{{ end }}

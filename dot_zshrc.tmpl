@@ -145,6 +145,8 @@ eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 export PATH=$PATH:{{ .chezmoi.homeDir }}/bin
 
+source /Users/zachm/.config/op/plugins.sh
+
 unset BROWSER
 
 #Hide node_modules and .git from fzf - show dotfiles tho
