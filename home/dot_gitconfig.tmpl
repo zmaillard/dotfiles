@@ -6,6 +6,9 @@
         rebase = true
 [core]
         editor = vim
+        {{ if not .personal -}}
+        sshCommand = ssh.exe
+        {{ end -}}
 [pager]
         diff = false
         core = false
