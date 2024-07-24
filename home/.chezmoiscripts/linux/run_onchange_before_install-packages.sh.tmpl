@@ -6,8 +6,8 @@
 	"iproute2"
 	"fzf" 
 	"git" 
-        "zlib1g-dev"
-        "libb2-dev"
+    "zlib1g-dev"
+    "libb2-dev"
 	"zsh" 
 	"unzip"
 	"ripgrep" 
@@ -15,13 +15,14 @@
 	"libssl-dev"
 	"automake"
 	"autoconf"
-        "tmux"
+    "tmux"
 	"wget"
 	"make"
 	"jq" -}}
 
 {{ if eq .osid "linux-debian" -}}
 {{ $rspPackages := list
+	"ntpdate" 
 	"i2c-tools" 
 	"libssl-dev" 
 	"zlib1g-dev"
