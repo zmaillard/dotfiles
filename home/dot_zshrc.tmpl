@@ -135,6 +135,9 @@ alias wsltime="sudo ntpdate time.windows.com"
 if [ -d "$HOME/.local/bin" ] ; then
   export PATH="$HOME/.local/bin:$PATH"
 fi
+if [ -d "$HOME/.dotnet/tools" ] ; then
+  export PATH="$HOME/.dotnet/tools:$PATH"
+fi
 #export DOCKER_HOST=tcp://localhost:2375
 
 
