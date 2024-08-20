@@ -145,7 +145,9 @@ eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 export PATH=$PATH:{{ .chezmoi.homeDir }}/bin
 
+{{if eq .chezmoi.os "darwin" }}
 source /Users/zachm/.config/op/plugins.sh
+{{end}}
 
 unset BROWSER
 
