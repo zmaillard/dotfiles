@@ -1,0 +1,40 @@
+#!/bin/bash
+
+set -eufo pipefail
+
+{{ $brews := list
+    "asdf"
+    "bat"
+    "curl"
+    "direnv"
+    "fzf"
+    "gh"
+    "git"
+    "jq"
+    "openjdk"
+    "neovim"
+    "neonctl"
+    "ripgrep"
+    "starship"
+    "terraform"
+    "tmux"
+    "turso"
+    "wget"
+    "xz"
+    "zoxide" -}}
+
+{{ $casks := list
+    "hammerspoon"
+    "font-hack-nerd-font"
+    "1password-cli"
+    "vlc" -}}
+
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range ($brews | sortAlpha | uniq) -}}
+brew "{{ . }}"
+{{ end -}}
+{{ range ($casks | sortAlpha | uniq) -}}
+cask "{{ . }}"
+{{ end -}}
+EOF
