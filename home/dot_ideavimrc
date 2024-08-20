@@ -1,0 +1,98 @@
+"Idea VIM Configuration File
+"Based on https://www.cyberwizard.io/posts/the-ultimate-ideavim-setup/
+set scrolloff=10
+set relativenumber
+set showmode
+set showcmd
+set visualbell
+set clipboard+=unnamed
+
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+set surround
+set highlightedyank
+set nerdtree
+
+let mapleader = " "
+
+
+set which-key
+let g:WhichKeyDesc_display = "<leader>d Display options"
+let g:WhichKeyDesc_zen_mode = "<leader>dz Toggle Zen mode"
+let g:WhichKeyDesc_df_mode = "<leader>dd Toggle Distraction-Free mode"
+let g:WhichKeyDesc_fullscreen = "<leader>df Toggle full screen"
+
+"jk to escape 
+inoremap jk <Esc>
+
+" Tab navigation
+nnoremap <A-n> :tabnext<CR>
+nnoremap <A-p> :tabnext<CR>\
+
+" Pane navigation
+nnoremap <A-h> <C-w>h
+nnoremap <A-l> <C-w>l
+nnoremap <A-k> <C-w>k
+nnoremap <A-j> <C-w>j
+
+" Jump between methods
+nnoremap [[ <Action>(MethodUp)
+nnoremap ]] <Action>(MethodDown)
+
+" Visual identation
+vnoremap < <gv
+vnoremap > >gv
+
+" Popup navigation
+inoremap <C-j> <Action>(PopupMenu-selectNext)
+inoremap <C-k> <Action>(PopupMenu-selectPrev)
+
+" Comment Lines
+map <leader>c <action>(CommentByLineComment)
+
+" File explorer
+map <leader>x :NERDTreeToggle<CR>
+
+" Display modes
+map <leader>dd <action>(ToggleDistractionFreeMode)
+map <leader>dz <action>(ToggleZenMode)
+map <leader>df <action>(ToggleFullScreen)
+
+" Context and search menus
+map <leader>am <action>(ShowIntentionActions)
+map <leader>as <action>(SearchEverywhere)
+
+" Working with files
+map <leader>ff <action>(GotoFile)
+map <leader>fr <action>(RecentFiles)
+map <leader>fc <action>(FindInPath)
+map <leader><leader> <action>(RecentFiles)
+map <leader>fl <action>(RecentLocations)
+map <leader>fs <action>(NewScratchFile)
+
+" Close active tab
+map <leader>q <action>(CloseContent)
+
+" Refactoring
+nmap <leader>gd <action>(GotoDeclaration)
+nmap <leader>gy <action>(GotoTypeDeclaration)
+nmap <leader>gi <action>(GotoImplementation)
+nmap <leader>gu <action>(ShowUsages)
+nmap <leader>gt <action>(GotoTest)
+nmap <leader>gf <action>(Back)
+nmap <leader>gb <action>(Forward)
+
+" Git Utilities
+map <leader>gc <action>(CheckinProject)
+map <leader>gs <action>(ActivateVersionControlToolWindow)
+map <leader>gb <action>(Git.Branches)
+
+
+" Working with errors
+map <leader>en <action>(ReSharperGotoNextErrorInSolution)
+map <leader>ep <action>(ReSharperGotoPrevErrorInSolution)
+
+

@@ -1,0 +1,10 @@
+{{ if not .personal -}}
+github.com:
+    users:
+        
+        {{ (onepasswordDetailsFields "nsmsxm4la7dcu52ui6xzho746e").username.value }}:
+            oauth_token: {{ (onepasswordItemFields "nsmsxm4la7dcu52ui6xzho746e").CLI.value }}
+    git_protocol: ssh
+    oauth_token: {{ (onepasswordItemFields "nsmsxm4la7dcu52ui6xzho746e").CLI.value }}
+    user: {{ (onepasswordDetailsFields "nsmsxm4la7dcu52ui6xzho746e").username.value }} 
+{{ end -}}

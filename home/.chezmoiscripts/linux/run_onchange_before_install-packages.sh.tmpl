@@ -6,6 +6,8 @@
 	"iproute2"
 	"fzf" 
 	"git" 
+    "zlib1g-dev"
+    "libb2-dev"
 	"zsh" 
 	"unzip"
 	"ripgrep" 
@@ -18,12 +20,9 @@
 	"make"
 	"jq" -}}
 
-{{ if eq .osid "linux-ubuntu" -}}
-{{   $packages = concat $packages (list "gdal-bin" "python3-venv" 	  ) -}}
-{{ end -}}
-
 {{ if eq .osid "linux-debian" -}}
 {{ $rspPackages := list
+	"ntpdate" 
 	"i2c-tools" 
 	"libssl-dev" 
 	"zlib1g-dev"
