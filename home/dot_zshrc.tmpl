@@ -150,6 +150,11 @@ eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 export PATH=$PATH:{{ .chezmoi.homeDir }}/bin
 
+{{if .personal }}
+source {{ .chezmoi.homeDir }}/.config/op/plugins.sh
+eval "$(gh copilot alias -- zsh)"
+{{end}}
+
 unset BROWSER
 #Hide node_modules and .git from fzf - show dotfiles tho
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
