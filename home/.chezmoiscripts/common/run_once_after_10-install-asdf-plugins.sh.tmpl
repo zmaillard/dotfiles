@@ -1,11 +1,8 @@
 #!/bin/bash
 {{ if ne .chezmoi.os "darwin" -}}
 export PATH=$HOME/.asdf/bin:$PATH
-{{ end -}}
-
-{{ if ne .chezmoi.os "darwin" -}}
 asdf plugin-add python https://github.com/asdf-community/asdf-python
-{{ end -}}
+
 
 {{ if .personal }}
 asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git
@@ -25,3 +22,4 @@ asdf plugin-add neovim https://github.com/richin13/asdf-neovim
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 
 asdf install
+{{ end -}}
