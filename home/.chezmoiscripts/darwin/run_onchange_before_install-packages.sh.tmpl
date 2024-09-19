@@ -4,8 +4,9 @@
 set -eufo pipefail
 
 {{ $brews := list
-    "asdf"
+    "mise"
     "autoconf"
+    "uv"
     "openssl@1.1"
     "wxwidgets"
     "bat"
@@ -22,13 +23,15 @@ set -eufo pipefail
     "starship"
     "terraform"
     "tmux"
-    "turso"
     "wget"
     "xz"
     "zoxide" -}}
 
 {{ $casks := list
     "hammerspoon"
+    "kitty"
+    "tailscale"
+    "jetbrains-toolbox"
     "font-hack-nerd-font"
     "1password-cli" -}}
 
@@ -41,4 +44,6 @@ brew "{{ . }}"
 cask "{{ . }}"
 {{ end -}}
 EOF
+
+GH_TOKEN={{ (onepasswordItemFields  "n5734ev4djb7tpw4gzqie4zpgu").Token.value }}  gh extension install github/gh-copilot --force
 {{ end -}}
