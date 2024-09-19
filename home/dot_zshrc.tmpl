@@ -73,7 +73,7 @@ plugins=(
   git
   vi-mode
   sudo
-  asdf
+  mise
 {{ if eq .osid "linux-ubuntu" -}}
   tmux
   nvm
@@ -82,11 +82,11 @@ plugins=(
 {{ end -}}
 )
 
+eval "$(mise activate zsh)"
 {{ if eq .osid "linux-debian" -}}
 . ~/.asdf/plugins/golang/set-env.zsh
 {{ else if eq .chezmoi.os "darwin" -}}
 eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(mise activate zsh)"
 {{ end -}}
 
 
