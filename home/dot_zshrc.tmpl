@@ -84,6 +84,9 @@ plugins=(
 
 {{ if eq .osid "linux-debian" -}}
 . ~/.asdf/plugins/golang/set-env.zsh
+{{ else if eq .chezmoi.os "darwin" -}}
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(mise activate zsh)"
 {{ end -}}
 
 
@@ -151,7 +154,6 @@ eval "$(starship init zsh)"
 export PATH=$PATH:{{ .chezmoi.homeDir }}/bin
 
 {{if .personal }}
-source {{ .chezmoi.homeDir }}/.config/op/plugins.sh
 eval "$(gh copilot alias -- zsh)"
 {{end}}
 
@@ -168,5 +170,3 @@ if [[ -z "$XDG_RUNTIME_DIR"  ]]; then
     fi
   fi
 fi
-
-
