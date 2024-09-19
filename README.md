@@ -37,3 +37,7 @@ wsl -d <distroname>
 ```bash
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply zmaillardhw
 ```
+
+## MacOS Specific
+- [Disable Reading DS_Store on Network Drives](https://support.apple.com/en-us/102064)
+`defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool TRUE`
