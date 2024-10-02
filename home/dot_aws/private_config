@@ -1,0 +1,4 @@
+[profile cloudflare]
+endpoint_url = https://328471a82e8e2e18d0bcc66d0b048db7.r2.cloudflarestorage.com
+region = auto
+output = json
