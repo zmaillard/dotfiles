@@ -17,6 +17,12 @@ return require('packer').startup(function(use)
 
   use('nvim-treesitter/nvim-treesitter', {run= ':TSUpdate'})
 
+  {{- if $personal -}}
+  use('Olical/conjure')
+  use('tpope/vim-dispatch')
+  use('clojure-vim/vim-jack-in')
+  use('radenling/vim-dispatch-neovim')
+  {{- end -}}
   use('nvim-lua/plenary.nvim')
   use('ThePrimeagen/harpoon')
   use('mbbill/undotree')

@@ -82,13 +82,11 @@ plugins=(
 {{ end -}}
 )
 
-eval "$(mise activate zsh)"
 {{ if eq .osid "linux-debian" -}}
 . ~/.asdf/plugins/golang/set-env.zsh
 {{ else if eq .chezmoi.os "darwin" -}}
 eval "$(/opt/homebrew/bin/brew shellenv)"
 {{ end -}}
-
 
 source $ZSH/oh-my-zsh.sh
 
@@ -145,13 +143,16 @@ fi
 
 
 eval "$(direnv hook zsh)"
-
-
 eval "$(zoxide init zsh)"
-
-
+eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
+
 export PATH=$PATH:{{ .chezmoi.homeDir }}/bin
+
+{{ if eq .chezmoi.os "darwin" -}}
+export JAVA_HOME=/opt/homebrew/opt/openjdk@23/libexec/openjdk.jdk/Contents/Home
+export PATH=$PATH:$JAVA_HOME:/opt/homebrew/Cellar/postgresql@15/15.8/bin/
+{{ end -}}
 
 {{if .personal }}
 eval "$(gh copilot alias -- zsh)"
