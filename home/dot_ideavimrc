@@ -1,3 +1,4 @@
+{{ if eq .chezmoi.os "darwin" -}}
 "Idea VIM Configuration File
 "Based on https://www.cyberwizard.io/posts/the-ultimate-ideavim-setup/
 set scrolloff=10
@@ -25,7 +26,7 @@ let g:WhichKeyDesc_zen_mode = "<leader>dz Toggle Zen mode"
 let g:WhichKeyDesc_df_mode = "<leader>dd Toggle Distraction-Free mode"
 let g:WhichKeyDesc_fullscreen = "<leader>df Toggle full screen"
 
-"jk to escape 
+"jk to escape
 inoremap jk <Esc>
 
 " Tab navigation
@@ -95,4 +96,6 @@ map <leader>gb <action>(Git.Branches)
 map <leader>en <action>(ReSharperGotoNextErrorInSolution)
 map <leader>ep <action>(ReSharperGotoPrevErrorInSolution)
 
-
+# Paredit
+map <leader>pa <action>(Paredit.Autopair)
+{{ end -}}
