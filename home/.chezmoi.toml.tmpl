@@ -10,7 +10,6 @@
 {{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") (eq .chezmoi.username "root" "ubuntu" "vagrant" "vscode") -}}
 {{-   $ephemeral = true -}}
 {{-   $headless = true -}}
-{{-   $personal = true -}}
 {{- else -}}
 {{-   $personal = promptBoolOnce . "personal" "personal" -}}
 {{- end -}}
@@ -32,7 +31,7 @@
 [data]
   email = {{ $email | quote }}
   fullname = "Zachary Maillard"
-  ghusername = {{ $ghuser | quote }} 
+  ghusername = {{ $ghuser | quote }}
   personal = {{ $personal }}
   ephemeral = {{ $ephemeral }}
   headless = {{ $headless }}
