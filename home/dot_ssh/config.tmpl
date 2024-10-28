@@ -1,7 +1,13 @@
-Host *
-    IdentityAgent ~{{ .chezmoi.pathSeparator }}.1password{{ .chezmoi.pathSeparator }}agent.sock
 
+{{- if not .ephemeral -}}
+Host *
+  {{ if eq .chezmoi.os "darwin"}}
+  IdentityAgent "~{{ .chezmoi.pathSeparator }}Library{{ .chezmoi.pathSeparator }}Group Containers{{ .chezmoi.pathSeparator }}2BUA8C4S2C.com.1password{{ .chezmoi.pathSeparator }}t{{ .chezmoi.pathSeparator }}agent.sock"
+  {{ else }}
+  IdentityAgent ~{{ .chezmoi.pathSeparator }}.1password{{ .chezmoi.pathSeparator }}agent.sock
+  {{ end }}
 Host github
   HostName github.com
   User git
   IdentityFile ~{{ .chezmoi.pathSeparator }}.ssh{{ .chezmoi.pathSeparator }}id_ed25519
+{{ end -}}

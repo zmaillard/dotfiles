@@ -22,6 +22,7 @@ return require('packer').startup(function(use)
   use('tpope/vim-dispatch')
   use('clojure-vim/vim-jack-in')
   use('radenling/vim-dispatch-neovim')
+  use('gpanders/nvim-parinfer')
   {{- end -}}
   use('nvim-lua/plenary.nvim')
   use('ThePrimeagen/harpoon')
@@ -29,7 +30,14 @@ return require('packer').startup(function(use)
   use('tpope/vim-fugitive')
   use('kylechui/nvim-surround')
 
-  use ('github/copilot.vim')
+  use {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup()
+    end,
+  }
 
   use {'williamboman/mason.nvim'}
   use {'williamboman/mason-lspconfig.nvim'}
