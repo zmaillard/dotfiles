@@ -1,17 +1,17 @@
-{{ if eq .osid "linux-ubuntu" "linux-debian" -}}
+{{ if (and (eq .osid "linux-debian"  "linux-ubuntu") (not .ephemeral)) -}}
 
 {{ $packages := list
-	"direnv" 
+	"direnv"
 	"build-essential"
 	"iproute2"
-	"fzf" 
-	"git" 
+	"fzf"
+	"git"
     "zlib1g-dev"
     "libb2-dev"
-	"zsh" 
+	"zsh"
 	"unzip"
-	"ripgrep" 
-	"zoxide" 
+	"ripgrep"
+	"zoxide"
 	"libssl-dev"
 	"automake"
 	"autoconf"
@@ -23,9 +23,9 @@
 
 {{ if eq .osid "linux-debian" -}}
 {{ $rspPackages := list
-	"ntpdate" 
-	"i2c-tools" 
-	"libssl-dev" 
+	"ntpdate"
+	"i2c-tools"
+	"libssl-dev"
 	"zlib1g-dev"
 	"curl"
     "ninja-build"
@@ -34,7 +34,7 @@
 	"libbz2-dev"
 	"libreadline-dev"
 	"libsqlite3-dev"
-	"llvm" 
+	"llvm"
 	"libncursesw5-dev"
 	"xz-utils"
 	"tk-dev"

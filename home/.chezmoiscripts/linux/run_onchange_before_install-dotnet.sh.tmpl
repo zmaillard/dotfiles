@@ -1,4 +1,4 @@
-{{ if (and (eq .osid "linux-debian"  "linux-ubuntu") (not .personal)) -}}
+{{ if (and (eq .osid "linux-debian"  "linux-ubuntu") (not .personal) (not .ephemeral)) -}}
 #!/bin/bash
 
 # Get OS version info
