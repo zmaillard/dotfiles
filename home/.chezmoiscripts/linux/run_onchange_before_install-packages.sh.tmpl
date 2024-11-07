@@ -1,4 +1,4 @@
-{{ if (and (eq .osid "linux-debian"  "linux-ubuntu") (not .ephemeral)) -}}
+{{ if (not .ephemeral) -}}
 
 {{ $packages := list
 	"direnv"
