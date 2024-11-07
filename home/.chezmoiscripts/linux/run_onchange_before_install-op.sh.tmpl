@@ -1,4 +1,4 @@
-{{ if eq .osid "linux-ubuntu" "linux-debian" -}}
+{{ if (not .ephemeral) -}}
 #!/bin/bash
 
 curl -sS https://downloads.1password.com/linux/keys/1password.asc | \

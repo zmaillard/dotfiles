@@ -1,4 +1,3 @@
-{{ if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 
 set -eufo pipefail
@@ -52,4 +51,3 @@ cask "{{ . }}"
 EOF
 
 GH_TOKEN={{ (onepasswordItemFields  "n5734ev4djb7tpw4gzqie4zpgu").Token.value }}  gh extension install github/gh-copilot --force
-{{ end -}}
