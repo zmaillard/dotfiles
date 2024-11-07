@@ -1,8 +1,9 @@
+{{ if (and (eq .chezmoi.os "darwin") (not .ephemeral)) -}}
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <configuration>
   <packageSources>
     <add key="nuget.org" value="https://api.nuget.org/v3/index.json" protocolVersion="3" />
-    
+
     {{ if not .personal -}}
     <add key="github" value="https://nuget.pkg.github.com/{{ (onepasswordItemFields "nsmsxm4la7dcu52ui6xzho746e").organization.value }}/" />
     {{ end -}}
@@ -16,3 +17,4 @@
     {{ end -}}
   </packageSourceCredentials>
 </configuration>
+{{ end -}}
