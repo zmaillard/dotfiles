@@ -1,0 +1,13 @@
+{{ if (not .ephemeral) -}}
+[tools]
+babashka = "1.4.192"
+
+{{ if (not .personal) }}
+python="3.12.1"
+golang="1.22.0"
+yarn="1.22.22"
+neovim="stable"
+nodejs="20.15.1"
+deno="1.46.2"
+{{ end }}
+{{ end -}}
