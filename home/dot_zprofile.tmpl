@@ -1,0 +1,9 @@
+{{ if (not .ephemeral) -}}
+# IDE Support for Mise
+eval "$(mise activate zsh --shims)"
+{{ end -}}
+{{ if eq .chezmoi.os "darwin" -}}
+# Added by Toolbox App
+export PATH="$PATH:/Users/zachm/Library/Application Support/JetBrains/Toolbox/scripts"
+{{ end -}}
+
