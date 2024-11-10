@@ -1,6 +1,6 @@
 {{ if (not .ephemeral) -}}
 # IDE Support for Mise
-eval "$(mise activate zsh --shims)"
+export PATH="$HOME/.local/share/mise/shims:$PATH"
 {{ end -}}
 {{ if eq .chezmoi.os "darwin" -}}
 # Added by Toolbox App
