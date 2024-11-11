@@ -11,3 +11,9 @@
 .chezmoiscripts/linux/**
 .hushlogin
 {{ end }}
+
+
+{{ if .ephemeral }}
+.config/nvim/after
+.config/nvim/lua/zach
+{{ end }}
