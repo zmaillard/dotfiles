@@ -20,6 +20,11 @@
 	"make"
 	"jq" -}}
 
+{{ if eq .osid "linux-ubuntu" -}}
+{{ $ubuntuPackages := list "zellij" -}}
+{{ $packages = concat $packages $ubuntuPackages -}}
+{{ end -}}
+
 {{ if eq .osid "linux-debian" -}}
 {{ $rspPackages := list
 	"ntpdate" 

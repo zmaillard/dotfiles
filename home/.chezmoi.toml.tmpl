@@ -3,6 +3,7 @@
 {{- $headless := false -}}{{/* true if this machine does not have a screen and keyboard */}}
 {{- $personal := false -}}{{/* true if this machine should have personal secrets */}}
 {{- $wsl := true -}}{{/* true if this machine is running on WSL */}}
+{{- $homeLab := false -}}{{/* true if this machine is part of homelab */}}
 {{- "" -}}
 
 
@@ -13,6 +14,9 @@
 {{- else -}}
 {{-   $personal = promptBoolOnce . "personal" "personal" -}}
 {{- end -}}
+
+
+{{- $homeLab = promptBoolOnce . "homeLab" "homeLab" -}}
 
 {{- $osID := .chezmoi.os -}}
 {{- if (and (eq .chezmoi.os "linux") (hasKey .chezmoi.osRelease "id")) -}}
@@ -36,4 +40,6 @@
   ephemeral = {{ $ephemeral }}
   headless = {{ $headless }}
   wsl = {{ $wsl }}
+  homeLab = {{ $homeLab }}
+  onepasswordAccount = "PVWWGWIMRFEUNDPUXB3BKNMY3E"
   osid = {{ $osID | quote }}
