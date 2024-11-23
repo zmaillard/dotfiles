@@ -15,6 +15,15 @@
 
 {{ end -}}
 
+
+{{ if .homeLab -}}
+{{ $zellijVersion := "0.41.2" -}}
+[".local/bin/zellij"]
+    type = "archive-file"
+    url = "https://github.com/zellij-org/zellij/releases/download/v{{ $zellijVersion }}/zellij-aarch64-unknown-linux-musl.tar.gz"
+    path = "zellij"
+{{ end -}}
+
 [".local/share/nvim/site/pack/packer/start/packer.nvim"]
     type = "archive"
     url = "https://github.com/wbthomason/packer.nvim/archive/master.tar.gz"
