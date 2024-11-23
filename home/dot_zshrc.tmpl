@@ -74,12 +74,14 @@ plugins=(
   vi-mode
   sudo
   mise
+  history
 {{ if eq .osid "linux-ubuntu" -}}
   tmux
   nvm
   terraform
   docker
 {{ end -}}
+
 )
 
 {{ if eq .osid "linux-debian" -}}

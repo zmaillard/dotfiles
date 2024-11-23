@@ -1,4 +1,3 @@
-{{ if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 
 set -eufo pipefail
@@ -28,6 +27,8 @@ set -eufo pipefail
     "tmux"
     "wget"
     "xz"
+    "hugo"
+    "flyway"
     "zoxide" -}}
 
 {{ $casks := list
@@ -35,7 +36,9 @@ set -eufo pipefail
     "raspberry-pi-imager"
     "kitty"
     "tailscale"
+    "discord"
     "jetbrains-toolbox"
+    "visual-studio-code"
     "font-hack-nerd-font"
     "1password-cli" -}}
 
@@ -50,4 +53,3 @@ cask "{{ . }}"
 EOF
 
 GH_TOKEN={{ (onepasswordItemFields  "n5734ev4djb7tpw4gzqie4zpgu").Token.value }}  gh extension install github/gh-copilot --force
-{{ end -}}

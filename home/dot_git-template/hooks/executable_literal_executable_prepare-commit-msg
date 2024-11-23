@@ -1,3 +1,4 @@
+{{ if (and (not .personal) (not .ephemeral)) -}}
 #!/bin/bash
 
 COMMIT_MSG_FILE=$1
@@ -15,3 +16,4 @@ then
         echo "$hint" >> "$COMMIT_MSG_FILE"
     fi
 fi
+{{ end -}}
