@@ -18,8 +18,12 @@
     "tmux"
 	"wget"
 	"make"
-	"zellij"
 	"jq" -}}
+
+{{ if eq .osid "linux-ubuntu" -}}
+{{ $ubuntuPackages := list "zellij" -}}
+{{ $packages = concat $packages $ubuntuPackages -}}
+{{ end -}}
 
 {{ if eq .osid "linux-debian" -}}
 {{ $rspPackages := list
@@ -28,9 +32,10 @@
 	"libssl-dev"
 	"zlib1g-dev"
 	"curl"
-    "ninja-build"
-    "gettext"
-    "cmake"
+        "ninja-build"
+        "gettext"
+        "cmake"
+        "neovim"
 	"libbz2-dev"
 	"libreadline-dev"
 	"libsqlite3-dev"

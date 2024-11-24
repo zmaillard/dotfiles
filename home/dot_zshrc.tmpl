@@ -84,9 +84,7 @@ plugins=(
 
 )
 
-{{ if eq .osid "linux-debian" -}}
-. ~/.asdf/plugins/golang/set-env.zsh
-{{ else if eq .chezmoi.os "darwin" -}}
+{{ if eq .chezmoi.os "darwin" -}}
 eval "$(/opt/homebrew/bin/brew shellenv)"
 {{ end -}}
 
