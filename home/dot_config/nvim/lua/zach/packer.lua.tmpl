@@ -23,6 +23,16 @@ return require('packer').startup(function(use)
   use('clojure-vim/vim-jack-in')
   use('radenling/vim-dispatch-neovim')
   use('gpanders/nvim-parinfer')
+  use{
+    'dense-analysis/ale',
+    config = function()
+        local g = vim.g
+        g.ale_completion_enabled = 1
+        g.ale_linters = {
+         clojure = {'clj-kondo', 'joker'}
+        }
+    end,
+  }
   {{- end -}}
   use('nvim-lua/plenary.nvim')
   use('ThePrimeagen/harpoon')
