@@ -80,6 +80,23 @@ map <leader>fs <action>(NewScratchFile)
 map <leader>q <action>(CloseContent)
 
 " Refactoring
+nmap <leader>ll <Action>(Refactorings.QuickListPopupAction)
+nmap <leader>lr <Action>(RenameElement)
+nmap <leader>lc <Action>(ChangeSignature)
+nmap <leader>lv <Action>(IntroduceVariable)
+nmap <leader>li <Action>(Inline)
+nmap <leader>lf <Action>(IntroduceField)
+nmap <leader>lm <Action>(ExtractMethod)
+nmap <leader>lC <Action>(IntroduceConstant)
+nmap <leader>lp <Action>(IntroduceParameter)
+nmap <leader>lo <Action>(IntroduceParameterObject)
+nmap <leader>le <Action>(EncapsulateFields)
+nmap <leader>la <Action>(ShowIntentionActions)
+nmap <leader>lR <Action>(ReformatCode)
+nmap <leader>lI <Action>(InspectCode)
+nmap <leader>lG <Action>(Generate)
+
+# Navigation
 nmap <leader>gd <action>(GotoDeclaration)
 nmap <leader>gy <action>(GotoTypeDeclaration)
 nmap <leader>gi <action>(GotoImplementation)
