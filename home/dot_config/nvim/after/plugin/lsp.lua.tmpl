@@ -55,12 +55,17 @@ require('mason-lspconfig').setup({
     ensure_installed = {
         "lua_ls",
         "clojure_lsp",
+        "pyright",
         "ts_ls",
 {{ if eq .osid "linux-debian" -}}
         "rust_analyzer",
         "gopls"
 {{ end -}}
     },
+})
+
+lspconfig.pyright.setup({
+    on_attach = on_attach,
 })
 
 lspconfig.lua_ls.setup({

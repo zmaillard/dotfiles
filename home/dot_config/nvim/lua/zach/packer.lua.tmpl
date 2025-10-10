@@ -38,7 +38,13 @@ return require('packer').startup(function(use)
   use('ThePrimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
+  use('tpope/vim-eunuch')
   use('kylechui/nvim-surround')
+  use('sQVe/sort.nvim')
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
 
   use {
     "zbirenbaum/copilot.lua",
