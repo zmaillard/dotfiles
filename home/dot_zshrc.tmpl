@@ -76,7 +76,6 @@ plugins=(
   mise
   history
 {{ if eq .osid "linux-ubuntu" -}}
-  tmux
   nvm
   terraform
   docker
@@ -151,7 +150,6 @@ fi
 
 
 eval "$(direnv hook zsh)"
-eval "$(zoxide init zsh)"
 eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
 
