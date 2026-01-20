@@ -7,3 +7,7 @@ export PATH="{{ .chezmoi.homeDir }}/.local/share/mise/shims:$PATH"
 export PATH="$PATH:{{ .chezmoi.homeDir }}/Library/Application Support/JetBrains/Toolbox/scripts"
 {{ end -}}
 
+{{ if stat (joinPath .chezmoi.homeDir ".orbstack" "shell" "init.zsh") }}
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+{{ end }}
+
