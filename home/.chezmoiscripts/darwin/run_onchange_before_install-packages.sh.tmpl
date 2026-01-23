@@ -29,6 +29,7 @@ set -eufo pipefail
     "starship"
     "terraform"
     "tmux"
+    "tree-sitter-cli"
     "wget"
     "xz"
     "zoxide" -}}
@@ -57,5 +58,3 @@ brew "{{ . }}"
 cask "{{ . }}"
 {{ end -}}
 EOF
-
-GH_TOKEN={{ (onepasswordItemFields  "n5734ev4djb7tpw4gzqie4zpgu").Token.value }}  gh extension install github/gh-copilot --force

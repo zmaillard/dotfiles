@@ -160,10 +160,6 @@ export JAVA_HOME=/opt/homebrew/opt/openjdk@23/libexec/openjdk.jdk/Contents/Home
 export PATH=$PATH:$JAVA_HOME
 {{ end -}}
 
-{{if .personal }}
-eval "$(gh copilot alias -- zsh)"
-{{end}}
-
 unset BROWSER
 #Hide node_modules and .git from fzf - show dotfiles tho
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'

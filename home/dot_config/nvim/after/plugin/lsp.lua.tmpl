@@ -87,16 +87,12 @@ require('mason-lspconfig').setup({
     },
 })
 
-vim.lsp.config('copilot', {
-   cmd = {"npx", "@github/copilot-language-server@^1.408.0", "--stdio" }, 
-})
 
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('clojure_lsp')
 vim.lsp.enable('pyright')
 vim.lsp.enable('ts_ls')
 vim.lsp.enable('gopls')
-vim.lsp.enable('copilot')
 {{ if eq .osid "linux-debian" -}}
     vim.lsp.enable('rust_analyzer')
 {{ end -}}
