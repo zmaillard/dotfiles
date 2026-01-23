@@ -28,30 +28,11 @@ return require('packer').startup(function(use)
   use{
       'nvim-treesitter/nvim-treesitter', 
       {build= ':TSUpdate'},
-      config = function()
-            local treesitter = require("nvim-treesitter")
-            treesitter.setup()
-            treesitter.install ({  'javascript', 'typescript', 'c', 'lua', 'vim', 'vimdoc', 'query', 'clojure' })
-      
-            vim.api.nvim_create_autocmd('FileType', {
-              pattern = {   'javascript', 'typescript', 'c', 'lua', 'vim', 'vimdoc', 'query', 'clojure' },
-              callback = function()
-                -- syntax highlighting, provided by Neovim
-                vim.treesitter.start()
-                -- folds, provided by Neovim (I don't like folds)
-                -- vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-                -- vim.wo.foldmethod = 'expr'
-                -- indentation, provided by nvim-treesitter
-                vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-              end,
-            })
-        end,
   }
 
   use('chentoast/marks.nvim')
 
   use('folke/which-key.nvim')
-  use('folke/snacks.nvim')
 
   use('Olical/conjure')
   use('gpanders/nvim-parinfer')
@@ -62,8 +43,8 @@ return require('packer').startup(function(use)
         g.ale_completion_enabled = 1
         g.ale_linters = {clojure = {'clj-kondo'}}
     end,
-  use('HiPhish/rainbow-delimiters.nvim')
   }
+  use('HiPhish/rainbow-delimiters.nvim')
   use('nvim-lua/plenary.nvim')
   use{
       'mbbill/undotree',
@@ -88,6 +69,13 @@ return require('packer').startup(function(use)
   }
 
 
+  use({
+    "stevearc/oil.nvim",
+    config = function()
+      require("oil").setup()
+    end,
+  })
+
   use {'github/copilot.vim'}
 
 
@@ -96,5 +84,12 @@ return require('packer').startup(function(use)
 
   use {'neovim/nvim-lspconfig'}
   use {'L3MON4D3/LuaSnip'}
+
+  use ({
+    'nvim-mini/mini.nvim', 
+    version = '*',
+    config = function()
+      require('mini.icons').setup({})
+    end, })
 
 end)
