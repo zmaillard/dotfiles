@@ -4,6 +4,7 @@ set -eufo pipefail
 
 {{ $brews := list
     "mise"
+    "ansible"
     "autoconf"
     "uv"
     "openssl@1.1"
@@ -16,6 +17,7 @@ set -eufo pipefail
     "gh"
     "git"
     "helm"
+    "imagemagick"
     "jq"
     "just"
     "libdvdcss"
@@ -26,8 +28,9 @@ set -eufo pipefail
     "ripgrep"
     "rclone"
     "starship"
-    "terraform"
     "anomalyco/tap/opencode"
+    "hashicorp/tap/packer"
+    "hashicorp/tap/terraform"
     "tmux"
     "tree-sitter-cli"
     "wget"

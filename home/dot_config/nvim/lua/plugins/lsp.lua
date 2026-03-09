@@ -94,8 +94,8 @@ return {
 
         require('mason-lspconfig').setup({
             ensure_installed = {
-                "lua_ls", "clojure_lsp", "pyright", "ts_ls", "gopls",
-                "rust_analyzer"
+                "lua_ls", "gleam", "clojure_lsp", "pyright", "ts_ls", "gopls",
+                "rust_analyzer", "terraform_ls"
             }
         })
 
@@ -105,6 +105,8 @@ return {
         vim.lsp.enable('ts_ls')
         vim.lsp.enable('gopls')
         vim.lsp.enable('rust_analyzer')
+        vim.lsp.enable('terraform_ls')
+        vim.lsp.enable('gleam')
 
     end
 }

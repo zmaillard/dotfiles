@@ -7,13 +7,13 @@ return {
         treesitter.setup()
         treesitter.install({
             'javascript', 'typescript', 'c', 'lua', 'python', 'vim', 'vimdoc',
-            'query', 'clojure'
+            'query', 'clojure', 'terraform', 'gleam'
         })
 
         vim.api.nvim_create_autocmd('FileType', {
             pattern = {
                 'javascript', 'typescript', 'c', 'lua', 'python', 'vim',
-                'vimdoc', 'query', 'clojure'
+                'vimdoc', 'query', 'clojure', 'terraform', 'gleam'
             },
             callback = function()
                 -- syntax highlighting, provided by Neovim
