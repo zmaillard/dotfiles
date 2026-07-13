@@ -94,7 +94,7 @@ return {
 
         require('mason-lspconfig').setup({
             ensure_installed = {
-                "lua_ls", "gleam", "clojure_lsp", "pyright", "ts_ls", "gopls",
+                "lua_ls", "clojure_lsp", "pyright", "ts_ls", "gopls",
                 "rust_analyzer", "terraform_ls"
             }
         })

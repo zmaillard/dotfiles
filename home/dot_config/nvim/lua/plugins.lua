@@ -7,7 +7,7 @@ return {
         dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' },
     },
     {
-        'folke/tokyonight.nvim', 
+        'folke/tokyonight.nvim',
         config = function()
             local colorscheme = 'tokyonight'
 
@@ -27,10 +27,10 @@ return {
                 mappings = {}
             })
         end
-    }, 
+    },
     'folke/which-key.nvim',
-    'Olical/conjure', 
-    'gpanders/nvim-parinfer', 
+    'Olical/conjure',
+    'gpanders/nvim-parinfer',
     {
         'dense-analysis/ale',
         config = function()
@@ -38,41 +38,32 @@ return {
             g.ale_completion_enabled = 1
             g.ale_linters = {clojure = {'clj-kondo'}}
         end
-    }, 
-    'HiPhish/rainbow-delimiters.nvim', 
-    {
-        'akinsho/bufferline.nvim',
-        version = "*",
-        dependencies = 'nvim-tree/nvim-web-devicons',
-        config = function(plugin)
-            vim.opt.termguicolors = true
-            require("bufferline").setup{}
-        end
-    }, 
-    'nvim-lua/plenary.nvim', 
+    },
+    'HiPhish/rainbow-delimiters.nvim',
+    'nvim-lua/plenary.nvim',
     {
         'mbbill/undotree',
         config = function(plugin)
             vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
         end
-    }, 
+    },
     {
         'tpope/vim-fugitive',
         config = function(plugin)
             vim.keymap.set("n", "<leader>gs", vim.cmd.Git);
         end
-    }, 
-    'tpope/vim-eunuch', 
-    'kylechui/nvim-surround', 
-    'sQVe/sort.nvim', 
+    },
+    'tpope/vim-eunuch',
+    'kylechui/nvim-surround',
+    'sQVe/sort.nvim',
     {
         'nvim-lualine/lualine.nvim',
         dependencies = {'nvim-tree/nvim-web-devicons', lazy = true},
         config = function(plugin) require('lualine').setup() end
     },
     {"stevearc/oil.nvim", config = function(plugin) require("oil").setup() end},
-    'github/copilot.vim', 
-    'L3MON4D3/LuaSnip', 
+    'github/copilot.vim',
+    'L3MON4D3/LuaSnip',
     {
         'nvim-mini/mini.nvim',
         version = '*',

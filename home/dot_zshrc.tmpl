@@ -152,6 +152,7 @@ fi
 eval "$(direnv hook zsh)"
 eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
+eval "$(atuin init zsh)"
 
 export PATH=$PATH:{{ .chezmoi.homeDir }}/bin
 
