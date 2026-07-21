@@ -1,4 +1,4 @@
-{{ if (not .ephemeral) -}}
+{{ if (and (not .ephemeral)) -}}
 
 {{ $packages := list
 	"direnv"
@@ -6,6 +6,7 @@
 	"iproute2"
 	"fzf"
 	"git"
+	"curl"
     "zlib1g-dev"
     "libb2-dev"
 	"zsh"
@@ -14,14 +15,11 @@
 	"libssl-dev"
 	"automake"
 	"autoconf"
+    "neovim"
 	"wget"
 	"make"
 	"jq" -}}
 
-{{ if eq .osid "linux-ubuntu" -}}
-{{ $ubuntuPackages := list "zellij" -}}
-{{ $packages = concat $packages $ubuntuPackages -}}
-{{ end -}}
 
 {{ if eq .osid "linux-debian" -}}
 {{ $rspPackages := list
@@ -29,11 +27,9 @@
 	"i2c-tools"
 	"libssl-dev"
 	"zlib1g-dev"
-	"curl"
     "ninja-build"
     "gettext"
     "cmake"
-    "neovim"
 	"libbz2-dev"
 	"libreadline-dev"
 	"libsqlite3-dev"
@@ -56,10 +52,25 @@
 {{ if eq .chezmoi.username "root" -}}
 {{  $sudo = "" -}}
 {{ end -}}
+{{ else -}}
+
+{{/* Ephemeral - Basic Packages */}}
+
+{{ $packages := list
+	"direnv"
+	"fzf"
+	"git"
+	"curl"
+	"zsh"
+	"ripgrep"
+    "neovim"
+	"jq" -}}
+
+
+{{ end -}}
 #! /bin/bash
 
 set -eufo pipefail
 
 {{ $sudo }}apt-get update
 {{ $sudo }}apt-get install -y {{ $packages | join " " }}
-{{ end -}}

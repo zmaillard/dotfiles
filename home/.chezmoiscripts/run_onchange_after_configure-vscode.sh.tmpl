@@ -1,4 +1,4 @@
-{{ if and (eq .chezmoi.os "darwin" "linux") (not .headless) (not .homeLab)  -}}
+{{ if and (eq .chezmoi.os "darwin" "linux") (not .headless) (not .homeLab) (not .ephemeral)  -}}
 {{ $extensions := list
     "asvetliakov.vscode-neovim"
     "ms-vscode-remote.remote-containers"

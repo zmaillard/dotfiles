@@ -1,1 +1,3 @@
+{{ if (.not .ephemeral) -}}
 wrangler
+{{ end -}}
